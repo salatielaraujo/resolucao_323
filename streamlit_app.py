@@ -1,7 +1,6 @@
 import streamlit as st
 
 st.title("Classificação de Empreendimentos de Irrigação")
-st.write("="*120)
 
 # Perguntas para determinar o método de irrigação
 st.subheader("Métodos de irrigação:")
@@ -142,5 +141,3 @@ if area is not None:
             st.write("\nClassificação: Licenciamento trifásico")
     else:
         st.write("\nMétodo de irrigação inválido.")
-        
-st.write("="*120)
