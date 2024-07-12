@@ -140,8 +140,8 @@ if metodo_selecionado != "Selecione um método":
         else:
             st.write("\nMétodo de irrigação inválido.")
 
-    st.write("\nMedida de porte...: "+medida_porte)
     if metodo != "6":
+        st.write("\nMedida de porte...: "+medida_porte)
         st.write("\nUnidade de Medida.: hectares")
         st.write("\nApresentação......: "+impacto)
         st.write("\nPorte.............: "+porte)
