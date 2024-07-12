@@ -25,10 +25,10 @@ else:
 area = None
 # Pergunta sobre a área irrigada ou área da bacia de acumulação
 if metodo_selecionado in metodos[:3]:
-    st.subheader("\nA medida de porte é área irrigada e a unidade de medida é 'hectares'")
+    st.write("\nA medida de porte é área irrigada e a unidade de medida é 'hectares'")
     area = st.number_input("Qual é a área irrigada em hectares?", min_value=0.0, step=0.1)
 elif metodo_selecionado in metodos[3:]:
-    st.subheader("\nA medida de porte é área da bacia de acumulação e a unidade de medida é 'hectares'")
+    st.write("\nA medida de porte é área da bacia de acumulação e a unidade de medida é 'hectares'")
     area = st.number_input("Qual é a área da bacia de acumulação em hectares?", min_value=0.0, step=0.1)
 else:
     st.write("Atividade isenta.")
