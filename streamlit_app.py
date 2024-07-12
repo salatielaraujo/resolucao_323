@@ -1,7 +1,6 @@
 import streamlit as st
 
-st.title("Classificação de Empreendimentos de Irrigação - V 1.0")
-
+st.title("Classificação de Empreendimentos de Irrigação - V 1.1")
 
 # Perguntas para determinar o método de irrigação
 st.subheader("Métodos de irrigação:")
@@ -21,17 +20,17 @@ metodo_selecionado = st.selectbox("Qual é o método de irrigação utilizado?",
 metodo = metodos[metodo_selecionado]
 
 if metodo in ["1", "2", "3", "4", "7"]:
-    st.write("\nO empreendimento é considerado como de potencial poluidor 'alto'")
+    potencial_poluidor = 'alto'
 else:
-    st.write("\nO empreendimento é considerado como de potencial poluidor 'baixo'")
+    potencial_poluidor = 'baixo'
 
 area = None
 # Pergunta sobre a área irrigada ou área da bacia de acumulação
 if metodo in ["1", "2", "3"]:
-    st.write("\nA medida de porte é área irrigada e a unidade de medida é 'hectares'")
+    medida_porte = 'área irrigada'
     area = st.number_input("Qual é a área irrigada em hectares?", min_value=0.0, step=0.1)
 elif metodo in ["4", "5", "7", "8"]:
-    st.write("\nA medida de porte é área da bacia de acumulação e a unidade de medida é 'hectares'")
+    medida_porte = 'área da bacia de acumulação ou área alagada'
     area = st.number_input("Qual é a área da bacia de acumulação em hectares?", min_value=0.0, step=0.1)
 else:
     st.write("Atividade isenta.")
@@ -144,4 +143,8 @@ if area is not None:
             st.write("\nClassificação: Licenciamento trifásico")
     else:
         st.write("\nMétodo de irrigação inválido.")
+
+st.write("\nO empreendimento é considerado como de potencial poluidor '"+potencial_poluidor+"'")
+st.write("\nA medida de porte é '"+medida_porte+"' e a unidade de medida é 'hectares'")
+
 
