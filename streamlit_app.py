@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Classificação de Empreendimentos de Irrigação - V 1.7")
+st.title("Classificação de Empreendimentos de Irrigação - V 1.8")
 
 # Perguntas para determinar o método de irrigação
 
@@ -120,26 +120,29 @@ if metodo_selecionado != "Selecione um método":
                 porte = "Excepcional"
                 
     # Determinação da classificação com base nas respostas
+    classificacao = ""
     if area is not None and area > 0:
         if metodo in ["1", "2", "3"]:  
             if area > 1000:
-                st.write("\nClassificação: Passível de EIA/RIMA")
+                classificacao = "Passível de EIA/RIMA"
             else:
-                st.write("\nClassificação: Licenciamento trifásico")
+                classificacao = "Licenciamento trifásico"
         elif metodo == "4":  
             if area > 50:
-                st.write("\nClassificação: Passível de EIA/RIMA")
+                classificacao = "Passível de EIA/RIMA"
             else:
-                st.write("\nClassificação: Licenciamento trifásico")
+                classificacao = "Licenciamento trifásico"
         elif metodo == "7":  
             if area > 200:
-                st.write("\nClassificação: Passível de EIA/RIMA")
+                classificacao = "Passível de EIA/RIMA"
             else:
-                st.write("\nClassificação: Licenciamento trifásico")
+                classificacao = "Licenciamento trifásico"
         else:
             st.write("\nMétodo de irrigação inválido.")
 
-    st.write("\nImpacto: "+impacto)
-    st.write("\nPorte..: "+porte)
-    st.write("\nO empreendimento é considerado como de potencial poluidor '"+potencial_poluidor+"'")
-    st.write("\nA medida de porte é '"+medida_porte+"' e a unidade de medida é 'hectares'")
+    st.write("\nMedida de porte...: "+medida_porte)
+    st.write("\nUnidade de Medida.: hectares")
+    st.write("\nImpacto...........: "+impacto)
+    st.write("\nPorte.............: "+porte)
+    st.write("\nPotencial poluidor: "+potencial_poluidor)
+    st.write("\nClassificação.....: "+classificacao)
