@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Classificação de Empreendimentos de Irrigação - V 1.10")
+st.title("Classificação de Empreendimentos de Irrigação - V 1.11")
 
 # Perguntas para determinar o método de irrigação
 
@@ -25,8 +25,8 @@ if metodo_selecionado != "Selecione um método":
     else:
         potencial_poluidor = 'baixo'
 
-    area = None
-    medida_porte = None
+    area = 0
+    medida_porte = ""
     # Pergunta sobre a área irrigada ou área da bacia de acumulação
     if metodo in ["1", "2", "3"]:
         medida_porte = 'área irrigada'
