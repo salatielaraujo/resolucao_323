@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Classificação de Empreendimentos de Irrigação - V 1.5")
+st.title("Classificação de Empreendimentos de Irrigação - V 1.6")
 
 # Perguntas para determinar o método de irrigação
 
@@ -68,10 +68,8 @@ if metodo_selecionado != "Selecione um método":
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo II")
             elif 50 <= area <= 200:
                 porte = "Grande"
-                st.write("\nEIA/RIMA necessário.")
             else:
                 porte = "Excepcional"
-                st.write("\nEIA/RIMA necessário.")
         elif metodo == "5":  
             if area <= 5:
                 porte = "A atividade é isenta."
@@ -86,10 +84,8 @@ if metodo_selecionado != "Selecione um método":
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo II")
             elif 100 < area <= 200:
                 porte = "Grande"
-                st.write("\nEIA/RIMA necessário.")
             else:
                 porte = "Excepcional"
-                st.write("\nEIA/RIMA necessário.")
         elif metodo == "6":  
             porte = "A atividade é isenta."
         elif metodo == "7":  
@@ -104,7 +100,6 @@ if metodo_selecionado != "Selecione um método":
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo II")
             elif 50 <= area <= 200:
                 porte = "Grande"
-                st.write("\nEIA/RIMA necessário.")
             else:
                 porte = "Excepcional"
                 st.write("\nEIA/RIMA necessário.")
@@ -122,10 +117,8 @@ if metodo_selecionado != "Selecione um método":
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo II")
             elif 100 < area <= 200:
                 porte = "Grande"
-                st.write("\nEIA/RIMA necessário.")
             else:
                 porte = "Excepcional"
-                st.write("\nEIA/RIMA necessário.")
                 
     # Determinação da classificação com base nas respostas
     if area is not None and area > 0:
