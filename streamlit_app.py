@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Classificação de Empreendimentos de Irrigação")
+st.title("Classificação de Empreendimentos de Irrigação - V 1.0")
 
 
 # Perguntas para determinar o método de irrigação
