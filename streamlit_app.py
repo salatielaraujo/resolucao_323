@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Classificação de Empreendimentos de Irrigação - V 1.11")
+st.title("Classificação de Empreendimentos de Irrigação - V 1.12")
 
 # Perguntas para determinar o método de irrigação
 
@@ -141,8 +141,9 @@ if metodo_selecionado != "Selecione um método":
             st.write("\nMétodo de irrigação inválido.")
 
     st.write("\nMedida de porte...: "+medida_porte)
-    st.write("\nUnidade de Medida.: hectares")
-    st.write("\nApresentação......: "+impacto)
-    st.write("\nPorte.............: "+porte)
-    st.write("\nPotencial poluidor: "+potencial_poluidor)
-    st.write("\nClassificação.....: "+classificacao)
+    if metodo != "6"
+        st.write("\nUnidade de Medida.: hectares")
+        st.write("\nApresentação......: "+impacto)
+        st.write("\nPorte.............: "+porte)
+        st.write("\nPotencial poluidor: "+potencial_poluidor)
+        st.write("\nClassificação.....: "+classificacao)
