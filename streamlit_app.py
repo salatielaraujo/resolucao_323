@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Classificação de Empreendimentos de Irrigação - V 1.8")
+st.title("Classificação de Empreendimentos de Irrigação - V 1.9")
 
 # Perguntas para determinar o método de irrigação
 
@@ -30,10 +30,10 @@ if metodo_selecionado != "Selecione um método":
     # Pergunta sobre a área irrigada ou área da bacia de acumulação
     if metodo in ["1", "2", "3"]:
         medida_porte = 'área irrigada'
-        area = st.number_input("Qual é a área irrigada em hectares?", min_value=0.0, step=0.1)
+        area = st.number_input("Qual é a área irrigada em hectares?", min_value=0, step=10, format='%d')
     elif metodo in ["4", "5", "7", "8"]:
         medida_porte = 'área da bacia de acumulação ou área alagada'
-        area = st.number_input("Qual é a área da bacia de acumulação em hectares?", min_value=0.0, step=0.1)
+        area = st.number_input("Qual é a área da bacia de acumulação em hectares?", min_value=0, step=10, format='%d')
     else:
         st.write("Atividade isenta.")
         
