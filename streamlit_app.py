@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("Classificação de Empreendimentos de Irrigação - V 1.4")
+st.title("Classificação de Empreendimentos de Irrigação - V 1.5")
 
 # Perguntas para determinar o método de irrigação
 
@@ -37,7 +37,7 @@ if metodo_selecionado != "Selecione um método":
     else:
         st.write("Atividade isenta.")
         
-    porte = None
+    porte = ""
     # Determinação da classificação do porte com base nas respostas
     if area is not None and area > 0:
         if metodo in ["1", "2", "3"]:  
