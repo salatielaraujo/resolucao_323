@@ -2,32 +2,35 @@ import streamlit as st
 
 st.title("Classificação de Empreendimentos de Irrigação")
 
+
 # Perguntas para determinar o método de irrigação
 st.subheader("Métodos de irrigação:")
-metodos = [
-    "Superficial com barragens",
-    "Superficial com açudes",
-    "Superficial sem uso de reservatório",
-    "Aspersão ou localizado com barragens",
-    "Aspersão ou localizado com açudes",
-    "Aspersão ou localizado sem reservatório",
-    "Barragem para irrigação",
-    "Açude para irrigação"
-]
+metodos = {
+    "1- Superficial com barragens": "1",
+    "2- Superficial com açudes": "2",
+    "3- Superficial sem uso de reservatório": "3",
+    "4- Aspersão ou localizado com barragens": "4",
+    "5- Aspersão ou localizado com açudes": "5",
+    "6- Aspersão ou localizado sem reservatório": "6",
+    "7- Barragem para irrigação": "7",
+    "8- Açude para irrigação": "8"
+}
 
-metodo_selecionado = st.selectbox("Qual é o método de irrigação utilizado?", metodos)
+metodo_selecionado = st.selectbox("Qual é o método de irrigação utilizado?", list(metodos.keys()))
 
-if metodo_selecionado in metodos[:5]:
+metodo = metodos[metodo_selecionado]
+
+if metodo in ["1", "2", "3", "4", "7"]:
     st.write("\nO empreendimento é considerado como de potencial poluidor 'alto'")
 else:
     st.write("\nO empreendimento é considerado como de potencial poluidor 'baixo'")
 
 area = None
 # Pergunta sobre a área irrigada ou área da bacia de acumulação
-if metodo_selecionado in metodos[:3]:
+if metodo in ["1", "2", "3"]:
     st.write("\nA medida de porte é área irrigada e a unidade de medida é 'hectares'")
     area = st.number_input("Qual é a área irrigada em hectares?", min_value=0.0, step=0.1)
-elif metodo_selecionado in metodos[3:]:
+elif metodo in ["4", "5", "7", "8"]:
     st.write("\nA medida de porte é área da bacia de acumulação e a unidade de medida é 'hectares'")
     area = st.number_input("Qual é a área da bacia de acumulação em hectares?", min_value=0.0, step=0.1)
 else:
@@ -35,7 +38,7 @@ else:
 
 # Determinação da classificação do porte com base nas respostas
 if area is not None:
-    if metodo_selecionado in metodos[:3]:  
+    if metodo in ["1", "2", "3"]:  
         if area <= 50:
             st.write("\nPorte: Mínimo")
             st.write("\nO impacto é local e a competência do licenciamento é municipal.")
@@ -51,7 +54,7 @@ if area is not None:
         else:
             st.write("\nPorte: Excepcional")
             st.write("\nEIA/RIMA necessário.")
-    elif metodo_selecionado == metodos[3]:  
+    elif metodo == "4":  
         if area <= 10:
             st.write("\nPorte: Mínimo")
             st.write("\nO impacto é local e a competência do licenciamento é municipal.")
@@ -67,7 +70,7 @@ if area is not None:
         else:
             st.write("\nPorte: Excepcional")
             st.write("\nEIA/RIMA necessário.")
-    elif metodo_selecionado == metodos[4]:  
+    elif metodo == "5":  
         if area <= 5:
             st.write("\nA atividade é isenta.")
         elif 5 < area <= 10:
@@ -85,9 +88,9 @@ if area is not None:
         else:
             st.write("\nPorte: Excepcional")
             st.write("\nEIA/RIMA necessário.")
-    elif metodo_selecionado == metodos[5]:  
+    elif metodo == "6":  
         st.write("\nA atividade é isenta.")
-    elif metodo_selecionado == metodos[6]:  
+    elif metodo == "7":  
         if area <= 10:
             st.write("\nPorte: Mínimo")
             st.write("\nO impacto é local e a competência do licenciamento é municipal.")
@@ -103,7 +106,7 @@ if area is not None:
         else:
             st.write("\nPorte: Excepcional")
             st.write("\nEIA/RIMA necessário.")
-    elif metodo_selecionado == metodos[7]:  
+    elif metodo == "8":  
         if area <= 5:
             st.write("\nAtividade é isenta.")
         elif 5 < area <= 10:
@@ -124,20 +127,21 @@ if area is not None:
             
 # Determinação da classificação com base nas respostas
 if area is not None:
-    if metodo_selecionado in metodos[:3]:  
+    if metodo in ["1", "2", "3"]:  
         if area > 1000:
             st.write("\nClassificação: Passível de EIA/RIMA")
         else:
             st.write("\nClassificação: Licenciamento trifásico")
-    elif metodo_selecionado == metodos[3]:  
+    elif metodo == "4":  
         if area > 50:
             st.write("\nClassificação: Passível de EIA/RIMA")
         else:
             st.write("\nClassificação: Licenciamento trifásico")
-    elif metodo_selecionado == metodos[6]:  
+    elif metodo == "7":  
         if area > 200:
             st.write("\nClassificação: Passível de EIA/RIMA")
         else:
             st.write("\nClassificação: Licenciamento trifásico")
     else:
         st.write("\nMétodo de irrigação inválido.")
+
