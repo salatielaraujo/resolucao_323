@@ -26,6 +26,7 @@ if metodo_selecionado != "Selecione um método":
         potencial_poluidor = 'baixo'
 
     area = None
+    medida_porte = None
     # Pergunta sobre a área irrigada ou área da bacia de acumulação
     if metodo in ["1", "2", "3"]:
         medida_porte = 'área irrigada'
@@ -35,7 +36,8 @@ if metodo_selecionado != "Selecione um método":
         area = st.number_input("Qual é a área da bacia de acumulação em hectares?", min_value=0.0, step=0.1)
     else:
         st.write("Atividade isenta.")
-
+        
+    porte = None
     # Determinação da classificação do porte com base nas respostas
     if area is not None and area > 0:
         if metodo in ["1", "2", "3"]:  
