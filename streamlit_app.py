@@ -1,9 +1,9 @@
 import streamlit as st
 
-st.title("Classificação de Empreendimentos de Irrigação - V 1.2")
+st.title("Classificação de Empreendimentos de Irrigação - V 1.3")
 
 # Perguntas para determinar o método de irrigação
-st.subheader("Métodos de irrigação:")
+
 metodos = {
     "1- Superficial com barragens": "1",
     "2- Superficial com açudes": "2",
@@ -40,89 +40,89 @@ if metodo_selecionado != "Selecione um método":
     if area is not None and area > 0:
         if metodo in ["1", "2", "3"]:  
             if area <= 50:
-                st.write("\nPorte: Mínimo")
+                porte = "Mínimo"
                 st.write("\nO impacto é local e a competência do licenciamento é municipal.")
             elif 50 < area <= 100:
-                st.write("\nPorte: Pequeno")
+                porte = "Pequeno"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo I")
             elif 100 < area <= 500:
-                st.write("\nPorte: Médio")
+                porte = "Médio"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo I")
             elif 500 < area <= 1000:
-                st.write("\nPorte: Grande")
+                porte = "Grande"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo II")
             else:
-                st.write("\nPorte: Excepcional")
+                porte = "Excepcional"
                 st.write("\nEIA/RIMA necessário.")
         elif metodo == "4":  
             if area <= 10:
-                st.write("\nPorte: Mínimo")
+                porte = "Mínimo"
                 st.write("\nO impacto é local e a competência do licenciamento é municipal.")
             elif 10 < area <= 25:
-                st.write("\nPorte: Pequeno")
+                porte = "Pequeno"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo I")
             elif 25 <= area <= 50:
-                st.write("\nPorte: Médio")
+                porte = "Médio"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo II")
             elif 50 <= area <= 200:
-                st.write("\nPorte: Grande")
+                porte = "Grande"
                 st.write("\nEIA/RIMA necessário.")
             else:
-                st.write("\nPorte: Excepcional")
+                porte = "Excepcional"
                 st.write("\nEIA/RIMA necessário.")
         elif metodo == "5":  
             if area <= 5:
-                st.write("\nA atividade é isenta.")
+                porte = "A atividade é isenta."
             elif 5 < area <= 10:
-                st.write("\nPorte: Mínimo")
+                porte = "Mínimo"
                 st.write("\nO impacto é local e a competência do licenciamento é municipal.")
             elif 10 < area <= 25:
-                st.write("\nPorte: Pequeno")
+                porte = "Pequeno"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo I")
             elif 25 < area <= 100:
-                st.write("\nPorte: Médio")
+                porte = "Médio"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo II")
             elif 100 < area <= 200:
-                st.write("\nPorte: Grande")
+                porte = "Grande"
                 st.write("\nEIA/RIMA necessário.")
             else:
-                st.write("\nPorte: Excepcional")
+                porte = "Excepcional"
                 st.write("\nEIA/RIMA necessário.")
         elif metodo == "6":  
-            st.write("\nA atividade é isenta.")
+            porte = "A atividade é isenta."
         elif metodo == "7":  
             if area <= 10:
-                st.write("\nPorte: Mínimo")
+                porte = "Mínimo"
                 st.write("\nO impacto é local e a competência do licenciamento é municipal.")
             elif 10 < area <= 25:
-                st.write("\nPorte: Pequeno")
+                porte = "Pequeno"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo I")
             elif 25 < area <= 50:
-                st.write("\nPorte: Médio")
+                porte = "Médio"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo II")
             elif 50 <= area <= 200:
-                st.write("\nPorte: Grande")
+                porte = "Grande"
                 st.write("\nEIA/RIMA necessário.")
             else:
-                st.write("\nPorte: Excepcional")
+                porte = "Excepcional"
                 st.write("\nEIA/RIMA necessário.")
         elif metodo == "8":  
             if area <= 5:
-                st.write("\nAtividade é isenta.")
+                porte = "Atividade é isenta."
             elif 5 < area <= 10:
-                st.write("\nPorte: Mínimo")
+                porte = "Mínimo"
                 st.write("\nO impacto é local e a competência do licenciamento é municipal.")
             elif 10 < area <= 25:
-                st.write("\nPorte: Pequeno")
+                porte = "Pequeno"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo I")
             elif 25 < area <= 100:
-                st.write("\nPorte: Médio")
+                porte = "Médio"
                 st.write("\nO projeto de licenciamento será apresentado conforme o Anexo II")
             elif 100 < area <= 200:
-                st.write("\nPorte: Grande")
+                porte = "Grande"
                 st.write("\nEIA/RIMA necessário.")
             else:
-                st.write("\nPorte: Excepcional")
+                porte = "Excepcional"
                 st.write("\nEIA/RIMA necessário.")
                 
     # Determinação da classificação com base nas respostas
@@ -145,5 +145,6 @@ if metodo_selecionado != "Selecione um método":
         else:
             st.write("\nMétodo de irrigação inválido.")
 
+    st.write("\nPorte: "+porte)
     st.write("\nO empreendimento é considerado como de potencial poluidor '"+potencial_poluidor+"'")
     st.write("\nA medida de porte é '"+medida_porte+"' e a unidade de medida é 'hectares'")
